@@ -730,7 +730,7 @@ let test_http_connect_tunnel proxy () =
         | Ok flow ->
           Log.info (fun f -> f "Connected to %s:3128" (Ipaddr.V4.to_string primary_dns_ip));
           let oc = Outgoing.C.create flow in
-          let host = "www.mobyproject.org" in
+          let host = "neverssl.com" in
           let request = Cohttp.Request.make ~meth:`GET (Uri.make ~host ()) in
           Outgoing.Request.write ~flush:true (fun _writer -> Lwt.return_unit) request oc
           >>= fun () ->
@@ -961,7 +961,7 @@ let test_http_connect_tunnel proxy () =
         | Ok flow ->
           Log.info (fun f -> f "Connected to %s:3128" (Ipaddr.V4.to_string primary_dns_ip));
           let oc = Outgoing.C.create flow in
-          let host = "www.mobyproject.org" in
+          let host = "neverssl.com" in
           let request = Cohttp.Request.make ~meth:`HEAD (Uri.make ~host ()) in
           Outgoing.Request.write ~flush:true (fun _writer -> Lwt.return_unit) request oc
           >>= fun () ->
